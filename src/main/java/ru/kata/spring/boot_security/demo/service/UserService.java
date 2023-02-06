@@ -9,8 +9,10 @@ import ru.kata.spring.boot_security.demo.model.User;
 import ru.kata.spring.boot_security.demo.repository.RoleRepository;
 import ru.kata.spring.boot_security.demo.repository.UserRepository;
 
+import java.util.List;
+
 @Service
-public class UserServce implements UserDetailsService {
+public class UserService implements UserDetailsService {
    @Autowired
    UserRepository userRepository;
   @Autowired
@@ -25,5 +27,7 @@ public class UserServce implements UserDetailsService {
         return user;
     }
 
-
+    public List<User> allUsers() {
+        return userRepository.findAll();
+    }
 }

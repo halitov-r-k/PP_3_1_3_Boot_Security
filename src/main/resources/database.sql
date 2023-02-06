@@ -21,7 +21,7 @@ create table user_roles(
 ) engine = InnoDB;
 
 -- insert data
-insert into users values (1, 'user1', 'user1');
+insert into users values (1, 'user', 'user');
 insert into roles values (1, 'ROLE_USER');
 insert into roles values (2, 'ROLE_ADMIN');
 insert into user_roles values (1,2);
