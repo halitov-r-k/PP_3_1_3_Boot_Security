@@ -8,8 +8,6 @@ import org.springframework.web.bind.annotation.*;
 import ru.kata.spring.boot_security.demo.model.User;
 import ru.kata.spring.boot_security.demo.service.UserService;
 
-import java.util.logging.Level;
-
 @Controller
 public class AdminController {
     @Autowired
@@ -54,7 +52,7 @@ public class AdminController {
         return "redirect:/admin/users";
     }
 
-    @DeleteMapping("deleteUser/{id}")
+    @DeleteMapping("admin/deleteUser/{id}")
     public String deleteUser(@PathVariable("id") Integer id) {
         userService.deleteUser(id);
         return "redirect:/admin/users";
