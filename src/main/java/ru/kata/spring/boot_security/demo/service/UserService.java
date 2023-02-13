@@ -4,7 +4,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 import ru.kata.spring.boot_security.demo.model.User;
 import ru.kata.spring.boot_security.demo.repository.RoleRepository;
@@ -42,8 +41,13 @@ public class UserService implements UserDetailsService {
         Optional<User> user = userRepository.findById(id);
         return user.orElse(new User());
     }
+    public User findUserByUsername(String username){
+        return userRepository.findByUsername(username);
+    }
 
     public void deleteUser(Integer id) {
         userRepository.deleteById(id);
     }
+
+
 }

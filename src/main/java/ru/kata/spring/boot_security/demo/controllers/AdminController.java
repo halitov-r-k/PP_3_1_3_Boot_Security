@@ -15,12 +15,9 @@ public class AdminController {
     @Autowired
     BCryptPasswordEncoder bCryptPasswordEncoder;
 
-    @GetMapping("/admin")
-    public String openAdminPage() {
-        return "/admin/admin";
-    }
 
-    @GetMapping("/admin/users")
+
+    @GetMapping("/admin")
     public String userList(Model model) {
         model.addAttribute("userList", userService.allUsers());
         return "admin/users";
