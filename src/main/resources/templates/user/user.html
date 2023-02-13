@@ -7,13 +7,14 @@
 <body>
 <h1>User</h1>
 <div th:user="${user}">
-    <p th:text="${user.getId()}"></p>
-    <p th:text="${user.getUsername()}"></p>
-    <p th:text="${user.getPassword()}"></p>
-    <th:bloc th:each="role :${user.getRoles()}">
-        <p th:text="${role.getName()}"> </p>
-    </th:bloc>
-
+    <p>Id: <span th:text="${user.getId()}"></span></p>
+    <p>Username: <span th:text="${user.getUsername()}"></span></p>
+    <p>Password: <span th:text="${user.getPassword()}"></span></p>
+    <p>Roles:
+    <ul th:each="role :${user.getRoles()}">
+        <li th:text="${role.getName()}"></li>
+    </ul>
+    </p>
 </div>
 </body>
 </html>

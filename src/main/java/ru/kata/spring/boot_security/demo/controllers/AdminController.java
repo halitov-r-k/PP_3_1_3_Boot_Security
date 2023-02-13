@@ -30,11 +30,11 @@ public class AdminController {
         return "admin/user-new";
     }
 
-    @PostMapping("/admin/users")
+    @PostMapping("/admin/save")
     public String saveUser(@ModelAttribute("user") User user) {
         user.setPassword(bCryptPasswordEncoder.encode(user.getPassword()));
         userService.saveUser(user);
-        return "redirect:/admin/users";
+        return "redirect:/admin";
     }
     @RequestMapping("admin/getUser/{id}")
     public String getUser(@PathVariable("id") Integer id, Model model) {
@@ -42,16 +42,16 @@ public class AdminController {
         model.addAttribute("user", user);
         return "admin/user-update";
     }
-    @PatchMapping("/updateUser")
+    @PatchMapping("admin/updateUser")
     public String updateUser(@ModelAttribute("user") User user) {
         user.setPassword(bCryptPasswordEncoder.encode(user.getPassword()));
         userService.saveUser(user);
-        return "redirect:/admin/users";
+        return "redirect:/admin";
     }
 
     @DeleteMapping("admin/deleteUser/{id}")
     public String deleteUser(@PathVariable("id") Integer id) {
         userService.deleteUser(id);
-        return "redirect:/admin/users";
+        return "redirect:/admin";
     }
 }

@@ -6,7 +6,7 @@
 </head>
 <body>
 <h1>User creation</h1>
-        <form th:method="POST" th:action="@{/admin/users}" th:object="${user}">
+        <form th:method="POST" th:action="@{/admin/save}" th:object="${user}">
         <label for="name">Enter name: </label>
             <input type="text"
                    th:field="*{username}"
@@ -18,6 +18,13 @@
                    th:field="*{password}"
                    id="password"
                    th:value="${user.password}"
+            />
+
+            <label for="roles">Enter roles(1-user, 2-admin): </label>
+            <input type="text"
+                   th:field="*{roles}"
+                   id="roles"
+                   th:value="${user.roles}"
             />
 
     <br/>

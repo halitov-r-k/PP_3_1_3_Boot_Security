@@ -6,12 +6,14 @@
 </head>
 <body>
 <h1>User update</h1>
-<form th:method="patch" th:action="@{/updateUser}" th:object="${user}">
+<form th:method="patch" th:action="@{admin/updateUser}" th:object="${user}">
     <input type="hidden" th:field="*{id}" id="id" th:value="${user.id}"/>
     <label for="name">Enter name: </label>
     <input type="text" th:field="*{username}" id="name" th:value="${user.username}"/>
-    <label for="name">Enter password: </label>
+    <label for="password">Enter password: </label>
     <input type="text" th:field="*{password}" id="password" th:value="${user.password}"/>
+    <label for="roles">Enter roles: </label>
+    <input type="text" th:field="*{roles}" id="roles" th:value="${user.roles}" >
     <br/>
     <input type="submit" value="Save"/>
 </form>

@@ -19,7 +19,7 @@
     <td th:text="${user.getPassword()}"></td>
     <td>
       <form th:method="get"
-            th:action="@{getUser/{id}(id=${user.getId()})}">
+            th:action="@{admin/getUser/{id}(id=${user.getId()})}">
         <input type="submit" value="Update"/>
       </form>
     </td>
