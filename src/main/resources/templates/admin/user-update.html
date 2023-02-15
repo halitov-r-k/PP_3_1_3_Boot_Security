@@ -6,7 +6,7 @@
 </head>
 <body>
 <h1>User update</h1>
-<form th:method="patch" th:action="@{admin/updateUser}" th:object="${user}">
+<form th:method="patch" th:action="@{/updateUser}" th:object="${user}">
     <input type="hidden" th:field="*{id}" id="id" th:value="${user.id}"/>
     <label for="name">Enter name: </label>
     <input type="text" th:field="*{username}" id="name" th:value="${user.username}"/>
@@ -17,5 +17,8 @@
     <br/>
     <input type="submit" value="Save"/>
 </form>
+<div>
+    <a th:href="@{/logout}">Logout</a>
+</div>
 </body>
 </html>

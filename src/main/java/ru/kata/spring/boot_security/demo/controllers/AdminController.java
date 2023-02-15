@@ -40,16 +40,16 @@ public class AdminController {
     public String getUser(@PathVariable("id") Integer id, Model model) {
         User user = userService.findUserById(id);
         model.addAttribute("user", user);
-        return "admin/user-update";
+        return "/admin/user-update";
     }
-    @PatchMapping("admin/updateUser")
+    @PatchMapping("/updateUser")
     public String updateUser(@ModelAttribute("user") User user) {
         user.setPassword(bCryptPasswordEncoder.encode(user.getPassword()));
         userService.saveUser(user);
         return "redirect:/admin";
     }
 
-    @DeleteMapping("admin/deleteUser/{id}")
+    @DeleteMapping("/deleteUser/{id}")
     public String deleteUser(@PathVariable("id") Integer id) {
         userService.deleteUser(id);
         return "redirect:/admin";
